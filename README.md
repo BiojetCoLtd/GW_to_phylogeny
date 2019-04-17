@@ -19,8 +19,7 @@
 ## Usage:
 
 ```
-   depth2db.pl --db-file filename.db [--yes] \
-   strain1=strain1.tsv [strain2=strain2.tsv ..]
+   depth2db.pl --db-file filename.db [--yes] strain1=strain1.tsv [strain2=strain2.tsv ..]
 
 Options:
    --db-file : SQLite db file
@@ -28,12 +27,9 @@ Options:
 ```
 
 ```
-   make-snpseqs.pl --db-file filename.db \
-   --strains strain1[,strain2[, ...]] \
-   --type {strict|allow-gaps|reference} \
-   [--min-coverage N] [--max-coverage N] \
-   --snp-pos-file filename.csv --out filename.fasta \
-   --summary filename.txt  
+   make-snpseqs.pl --db-file filename.db --strains strain1[,strain2[, ...]] \
+   --type {strict|allow-gaps|reference} [--min-coverage N] [--max-coverage N] \
+   --snp-pos-file filename.csv --out filename.fasta --summary filename.txt  
 
 Options:
    --db-file : SQLite db file
