@@ -1,4 +1,4 @@
-# GW_to_phylogeny : Create hypothetical nucleotide sequences in which bases of SNPs of each strain are collected for use in phylogenetic analysis.
+# GW_to_phylogeny : Create nucleotide sequences in which bases of SNPs of each strain are collected for use in phylogenetic analysis.
 
 ---
 
@@ -6,7 +6,6 @@
 
 + Per-base information on coverage exported as tsv format on CLC Genomics Workbench.
 + Annotation and variant information exported as csv format on CLC Genomics Workbench.
-
 
 ## Required libraries and programs:
 
@@ -17,3 +16,32 @@
 + Perl module Term::ReadKey
 + Perl module Text::CSV_XS
 
+## Usage:
+
+```
+   depth2db.pl --db-file filename.db [--yes] \
+   strain1=strain1.tsv [strain2=strain2.tsv ..]
+
+Options:
+   --db-file : SQLite db file
+   --yes : do not prompt before overwriting
+```
+
+```
+   make-snpseqs.pl --db-file filename.db \
+   --strains strain1[,strain2[, ...]] \
+   --type {strict|allow-gaps|reference} \
+   [--min-coverage N] [--max-coverage N] \
+   --snp-pos-file filename.csv --out filename.fasta \
+   --summary filename.txt  
+
+Options:
+   --db-file : SQLite db file
+   --strains : Comma separated strain list to process
+   --type : method for SNPs without relevant depth
+   --min-coverage : minimum coverage
+   --max-coverage : maximum coverage
+   --snp-pos-file : annotation and variant csv file
+   --out : output fasta file
+
+```
