@@ -1,14 +1,9 @@
 #!/usr/bin/perl
 use strict;
 use Getopt::Long qw(:config posix_default no_ignore_case bundling auto_help);
-use FindBin qw($RealBin $Script);
-use lib "$RealBin/lib/perl5";
+use FindBin qw($Script);
 use Text::CSV_XS;
 use DBI;
-
-#
-# 変異位置CSVを読み、指定された条件の配列を作る
-#
 
 sub usage
 {

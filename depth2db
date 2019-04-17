@@ -1,14 +1,9 @@
 #!/usr/bin/perl
 use strict;
 use Getopt::Long qw(:config posix_default no_ignore_case bundling auto_help);
-use FindBin qw($RealBin $Script);
-use lib "$RealBin/lib/perl5";
+use FindBin qw($Script);
 use Term::ReadKey;
 use DBI;
-
-#
-# 株ごとの変異nucleotide, depth情報をDBに変換する
-#
 
 sub usage
 {
@@ -52,6 +47,7 @@ eval {
 	$| = 1;
 	print "Processing ${depth_file} ";
 	my $num_line = 0;
+        my ($prev_contig, $prev_pos) = ('', -1);
 	while(my $line = <$fp>) {
 	    if ($num_line % 1000000 == 0) {
 		print '.';
@@ -61,6 +57,8 @@ eval {
 	    $line =~ s/[\r\n]//g;
 	    my ($contig, $pos, $subpos, $ref, $numA, $numC, $numG, $numT, $numN, $numGap,
 		$total) = split(/\t/, $line);
+	    next if (($contig eq $prev_contig) and ($pos eq $prev_pos));
+	    ($prev_contig, $prev_pos) = ($contig, $pos);
 	    my $contig_id;
 	    next if ($subpos ne '-');
 	    if (! exists($contig_ids{$contig})) {
