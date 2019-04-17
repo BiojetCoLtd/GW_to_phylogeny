@@ -35,9 +35,9 @@ Options:
 Options:
    --db-file : SQLite db file
 
-   --strains : Comma separated strain list to process
+   --strains : comma separated strain list to process
 
-   --type : method for SNPs without relevant depth
+   --type : processing method for SNPs without relevant depth
    
    --min-coverage : minimum coverage
    
@@ -46,4 +46,6 @@ Options:
    --snp-pos-file : annotation and variant csv file
    
    --out : output fasta file
+
+   --summary : processing report
 ```
