@@ -23,6 +23,7 @@
 
 Options:
    --db-file : SQLite db file
+
    --yes : do not prompt before overwriting
 ```
 
@@ -33,11 +34,16 @@ Options:
 
 Options:
    --db-file : SQLite db file
-   --strains : Comma separated strain list to process
-   --type : method for SNPs without relevant depth
-   --min-coverage : minimum coverage
-   --max-coverage : maximum coverage
-   --snp-pos-file : annotation and variant csv file
-   --out : output fasta file
 
+   --strains : Comma separated strain list to process
+
+   --type : method for SNPs without relevant depth
+   
+   --min-coverage : minimum coverage
+   
+   --max-coverage : maximum coverage
+   
+   --snp-pos-file : annotation and variant csv file
+   
+   --out : output fasta file
 ```
